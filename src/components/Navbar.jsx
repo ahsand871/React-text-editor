@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
-
 export default function Navbar(props) {
+
   return (
     <>
-         <nav className="navbar navbar-expand-lg bg-body-dark bg-dark " data-bs-theme="dark">
+        <nav className={props.isDark ? 'navbar navbar-expand-lg bg-body-dark bg-dark' : 'navbar navbar-expand-lg bg-body-primary bg-primary'}
+                data-bs-theme={props.isDark ? 'dark' : 'light'}>
          <div className="container-fluid">
-             <a className="navbar-brand" href="#">Ahsan's Blogs</a>
+             <a className="navbar-brand" href="#" >Ahsan's Blogs</a>
              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span className="navbar-toggler-icon"></span>
              </button>
@@ -28,10 +28,14 @@ export default function Navbar(props) {
                  </ul>
                  </li>
              </ul>
+
              <form className="d-flex" role="search">
-                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                 <button className="btn btn-outline-primary" type="submit">Search</button>
+                 <input className="form-control me-2" type="search" style={props.isDark? {background:'#121212'}: {background:'white'}} placeholder="Search" aria-label="Search"/>
+                 <button className={props.isDark? 'btn btn-primary' : `btn btn-light `}   type="submit">Search</button>
              </form>
+            <div className="toggle-container">
+                <button type='button' className='btn btn-secondary' onClick={props.handleToggle}>{props.isDark? 'Light Mode' :'Dark Mode' }</button>
+            </div>
              </div>
          </div>
          </nav>
