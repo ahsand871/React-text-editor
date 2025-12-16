@@ -54,7 +54,7 @@ export default function TextForm(props) {
              <textarea className="form-control me-2" value={props.text} style={props.isDark? {color : '#fff'} : {color : '#121212'}} placeholder='Enter Text Here!' onChange={handleOnChange} id="textBox" rows="10"></textarea>
             </div>
             <h4 className='textAreaHeading'>Options:</h4>
-            <div className="btn-container">
+            <div className={props.isDark? "btn-container btn-container-dark" : 'btn-container btn-container-light'}>
                 <button className='btn btn-primary' onClick={handleUppercase}>Convert to Uppercase</button>
                 <button className='btn btn-secondary' onClick={handleLowercase}>Convert to Lowercase</button>
                 <button className="btn btn-warning" onClick={handleSentenceCase}>Convert to Sentence Case</button>

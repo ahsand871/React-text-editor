@@ -4,7 +4,7 @@ export default function Summary(props) {
   return (
     <>
          { props.text.trim() !== "" && (
-            <div className="summary-container">
+            <div className={props.isDark? "summary-container summary-container-dark" : 'summary-container summary-container-light'}>
                 <div className="stats">
                     <div className="stat">
                         <h1 className="textAreaHeading">Your Text Summary:</h1>
