@@ -15,11 +15,6 @@ export default function Navbar(props) {
                  <a className="nav-link active" aria-current="page" href="#">Home</a>
                  </li>
             </ul>
-
-             <form className="d-flex" role="search">
-                 <input className="form-control me-2" type="search" style={props.isDark? {background:'#121212'}: {background:'white'}} placeholder="Search" aria-label="Search"/>
-                 <button className={props.isDark? 'btn btn-primary' : `btn btn-light `}   type="submit">Search</button>
-             </form>
             <div className="toggle-container">
                 <button type='button' className='btn btn-secondary' onClick={props.handleToggle}>{props.isDark? 'Light Mode' :'Dark Mode' }</button>
             </div>
