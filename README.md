@@ -31,9 +31,6 @@ Include a screenshot or GIF of your app here:
 
 ![App Screenshot](./screenshot.png)
 
-Or link to live demo if hosted:
-
-[Live Demo](https://your-demo-link.com)
 
 ---
 
