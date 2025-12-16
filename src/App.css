@@ -60,52 +60,7 @@ body, #root {
   padding: 1rem;
   margin: 0;
 }
-.anim:hover{
-  transform: scale(1.2);
-  transition: all 0.2s ease-in;
-}
-.inputBox {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 15px;
-  color: inherit;
-  font-family: "Lilex", monospace;
-  outline: none;
-  width: 150px;
-  transition: 0.15s ease;
-}
 
-.inputBox:focus {
-  border-color: #7c3aed;
-  box-shadow: 0 0 8px rgba(124,58,237,0.5);
-}
-.output {
-  font-size: 34px;
-  font-weight: 800;
-  text-align: center;
-  color: #b388ff;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-
-  text-shadow:
-    0 0 10px rgba(179,136,255,0.8),
-    0 0 25px rgba(179,136,255,0.5),
-    0 0 40px rgba(179,136,255,0.3);
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  animation: glowPulse 2s infinite ease-in-out;
-}
-
-@keyframes glowPulse {
-  0% { text-shadow: 0 0 8px rgba(179,136,255,0.6); }
-  50% { text-shadow: 0 0 20px rgba(179,136,255,1); }
-  100% { text-shadow: 0 0 8px rgba(179,136,255,0.6); }
-}
 .summary-container{
   flex-direction: column;
   color: #fff;
