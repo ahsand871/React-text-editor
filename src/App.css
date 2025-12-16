@@ -185,3 +185,9 @@ textarea.form-control {
 .toggle-container{
   margin-left: 1rem;
 }
+.theme-btn{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border-radius: 50%;
+}
