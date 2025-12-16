@@ -39,7 +39,8 @@ export default function TextForm(props) {
         props.setText(newText);
     }
     const handleDemoText = () =>{
-        let newText = `${props.text} Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus in tenetur voluptates ex excepturi rem. Possimus vel repellendus maiores labore iusto et expedita, distinctio, nemo sapiente omnis, atque ea deleniti blanditiis vero maxime! Quasi dolores corrupti, officia deserunt magnam voluptatum autem sequi eligendi aliquam fugit repudiandae dicta illum dolorem cupiditate?`;
+        let demoText= 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus in tenetur voluptates ex excepturi rem. Possimus vel repellendus maiores labore iusto et expedita, distinctio, nemo sapiente omnis, atque ea deleniti blanditiis vero maxime! Quasi dolores corrupti, officia deserunt magnam voluptatum autem sequi eligendi aliquam fugit repudiandae dicta illum dolorem cupiditate?';
+        let newText = `${props.text}${demoText}`;
         props.setText(newText);
     }
     const handleOnChange = (event) => {
