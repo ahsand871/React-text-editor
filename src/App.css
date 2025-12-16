@@ -16,13 +16,15 @@ body, #root {
 .main-app-dark{
   width: 100vw;
   display: flex;
+  margin-top: 70px;
   flex-direction: column;
   background-color: #121212;
   color: #b388ff;
 }
 .main-app-light{
-    width: 100vw;
+  width: 100vw;
   display: flex;
+  margin-top: 70px;
   flex-direction: column;
   background-color: #fdf6e3;
   color: #121212;

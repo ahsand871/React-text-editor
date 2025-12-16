@@ -2,7 +2,7 @@ export default function Navbar(props) {
 
   return (
     <>
-        <nav className={props.isDark ? 'navbar navbar-expand-lg bg-body-dark bg-dark' : 'navbar navbar-expand-lg bg-body-primary bg-primary'}
+        <nav className={props.isDark ? 'navbar navbar-expand-lg bg-body-dark bg-dark fixed-top' : 'navbar navbar-expand-lg bg-body-primary bg-primary fixed-top'}
                 data-bs-theme={props.isDark ? 'dark' : 'light'}>
          <div className="container-fluid">
              <a className="navbar-brand" href="#" >Ahsan's Text Editor</a>
