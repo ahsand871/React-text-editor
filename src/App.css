@@ -60,7 +60,6 @@ body, #root {
   padding: 1rem;
   margin: 0;
 }
-
 .summary-container{
   flex-direction: column;
   color: #fff;
