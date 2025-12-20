@@ -1,47 +1,63 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
 
 export default function TextForm(props) {
-    const [showToast, setErrorShowToast] = useState(false);
     const [copied, setCopied] = useState(false);
 
-
+    const checkEmpty =()=>{
+        if(props.text.trim() === ''){
+            props.showAlert('TextBox is Empty', "info");
+            return true;
+        }
+        return false;
+    }
     const handleUppercase = () => {
+        if (checkEmpty()) return;
+        
         let newText = props.text.toUpperCase();
         props.setText(newText);
+        props.showAlert('Converted to Uppercase', 'success');
     }
     const handleLowercase = () =>{
+        if (checkEmpty()) return;
+        
         let newText = props.text.toLowerCase();
         props.setText(newText);
+        props.showAlert('Converted to Lowercase', 'success');
     }
     const handleClear = ()=>{
-        props.setText('');
+        if (checkEmpty()) return;
+
+            props.setText('');
+            props.showAlert("Textbox Cleared!",'info')
+              
     }
 
 
     const handleCopy = () => {
-        if(props.text.trim() == ""){
-            setErrorShowToast(true);
+        if (checkEmpty()) return;
 
-            setTimeout(() => setErrorShowToast(false), 1000);
-            return; 
-        } else{
             navigator.clipboard.writeText(props.text);
             setCopied(true);
 
+            props.showAlert('Copied to Clipboard', 'success');
             setTimeout(() => setCopied(false), 1000);
             
-        }
+        
     }
     const handleSentenceCase = () => {
+        if (checkEmpty()) return;
+
         let newText = props.text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, function(c) {
             return c.toUpperCase();
         });
         props.setText(newText);
+        props.showAlert("Converted to SentenceCase!", "success");
     }
     const handleDemoText = () =>{
         let demoText= 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus in tenetur voluptates ex excepturi rem. Possimus vel repellendus maiores labore iusto et expedita, distinctio, nemo sapiente omnis, atque ea deleniti blanditiis vero maxime! Quasi dolores corrupti, officia deserunt magnam voluptatum autem sequi eligendi aliquam fugit repudiandae dicta illum dolorem cupiditate?';
         let newText = `${props.text}${demoText}`;
         props.setText(newText);
+        props.showAlert('Added Demo Text',"primary")
     }
     const handleOnChange = (event) => {
         props.setText(event.target.value);
@@ -51,10 +67,10 @@ export default function TextForm(props) {
         <div className="textArea">
         <h1 className='textAreaHeading'>Enter text below to analyze :</h1>
             <div className="mb-3 me-2">
-             <textarea className="form-control me-2" value={props.text} style={props.isDark? {color : '#fff'} : {color : '#121212'}} placeholder='Enter Text Here!' onChange={handleOnChange} id="textBox" rows="10"></textarea>
+             <textarea className="form-control me-2" value={props.text} style={props.theme === 'dark'? {color:"#121212"} : {color : "#fff"}} placeholder='Enter Text Here!' onChange={handleOnChange} id="textBox" rows="10"></textarea>
             </div>
             <h4 className='textAreaHeading'>Options:</h4>
-            <div className={props.isDark? "btn-container btn-container-dark" : 'btn-container btn-container-light'}>
+            <div className={`btn-container btn-container-${["light", "custom3"].includes(props.theme) ? "dark" : "light"}`}>
                 <button className='btn btn-primary' onClick={handleUppercase}>Convert to Uppercase</button>
                 <button className='btn btn-secondary' onClick={handleLowercase}>Convert to Lowercase</button>
                 <button className="btn btn-warning" onClick={handleSentenceCase}>Convert to Sentence Case</button>
@@ -64,13 +80,6 @@ export default function TextForm(props) {
             
             </div>
 
-            {showToast && (
-                <div className="toast show custom-toast position-fixed top-0 end-0 m-3">
-                    <div className="toast-body bg-danger text-white rounded">
-                    ❌ Textarea is empty.
-                    </div>
-                </div>
-                )}
            
             </div>
        </div>  
