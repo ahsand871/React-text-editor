@@ -3,7 +3,7 @@ export default function Navbar(props) {
 
   return (
     <>
-        <nav className={ props.theme === 'custom1' ? 'navbar navbar-expand-lg bg-dark fixed-top' :
+        <nav className={ props.theme === 'custom1' ? 'navbar navbar-expand-lg bg-primary fixed-top' :
               props.theme === 'custom2' ? 'navbar navbar-expand-lg bg-body-tertiary fixed-top' :
               props.theme === 'custom3'? 'navbar navbar-expand-lg bg-body-tertiary fixed-top':
               props.theme ==="dark" ? 'navbar navbar-expand-lg bg-primary fixed-top' : "navbar navbar-expand-lg bg-body-tertiary fixed-top"}
