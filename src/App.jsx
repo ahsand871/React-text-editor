@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from "react";
 import Navbar from './components/Navbar.jsx';
 import TextForm from './components/Textarea.jsx';
 import Summary from './components/SummaryCont.jsx';
@@ -13,6 +14,7 @@ function App() {
           if(theme === 'dark'){
               setTheme('light');
               showAlert('Dark Mode has been enabled!', 'warning');
+
           }else{
               setTheme('dark');
               showAlert('Light Mode has been enabled!', 'success');
@@ -34,6 +36,14 @@ function App() {
       const handleSmileTheme = () => {
         setTheme('custom1');
         showAlert('Smile theme enabled!', 'info');
+            
+        // setInterval(() => {
+        //         document.title='Install Now';
+        //       }, 1500);
+        //       setInterval(() => {
+        //         document.title='Join Us Now';
+        //       }, 2000);
+        // to set title dynamically
       };
 
       const handleHeartTheme = () => {
@@ -45,9 +55,20 @@ function App() {
         setTheme('custom3');
         showAlert('Fire theme enabled!', 'info');
       };
+        useEffect(() => {
+          const setVh = () => {
+            // 1vh ka 1% of actual window.innerHeight
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+          };
+
+          setVh();
+          window.addEventListener('resize', setVh);
+
+          return () => window.removeEventListener('resize', setVh);
+        }, []);
+
 
   return (
-    <>
     <div className={ 
               theme === 'custom1' ? 'main-app-smile' :
               theme === 'custom2' ? 'main-app-heart' :
@@ -60,7 +81,6 @@ function App() {
           <Summary text={text} theme={theme} />
         </div>
       </div>
-    </>
   )
 }
 

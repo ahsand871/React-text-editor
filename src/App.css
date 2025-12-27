@@ -5,15 +5,13 @@
   padding: 0;
   margin: 0;
   ::-webkit-scrollbar { width: 6px; cursor: pointer; }
-  
-
 }
 body, #root {
   max-width: 100vw;
   overflow-x: hidden;
-  margin-top: 70px;
 }
 .main-app-dark{
+
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -42,6 +40,18 @@ body, #root {
       background: #c2b48e;
     }
 }
+.main-app-dark,
+.main-app-light,
+.main-app-smile,
+.main-app-heart,
+.main-app-fire {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+}
+
+
 .main-app-smile {   background: linear-gradient(to right, #59c173, #a17fe0, #5d26c1); color: #121212; }
 .main-app-heart { background: linear-gradient(to right, #bdc3c7, #2c3e50); color: #121212; }
 .main-app-fire { background: linear-gradient(45deg, #ff4e50, #f9d423); color: #fff; }
@@ -61,6 +71,10 @@ body, #root {
   margin: 0 auto;
   background-color: inherit;
   color: inherit;
+
+    /* iOS fix */
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 .navbar{
   width: 100%;
@@ -86,6 +100,8 @@ body, #root {
     margin-top: 1rem;
     border-radius: 20px;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
 }
 .btn-container-dark,.summary-container-dark{
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -126,7 +142,19 @@ textarea.form-control {
 }
 textarea.form-control {
   border: 2px solid #2a2a2a;
+  width: 100% !important;
+  min-height: 160px;
+  box-sizing: border-box;
 }
+
+
+.btn-container,
+.summary-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 
 
 input.form-control::placeholder,
@@ -141,10 +169,8 @@ textarea.form-control:focus {
   border-color: #86b7fe;
   box-shadow: 0 0 1rem 0.55rem rgba(13,110,253,.25);
 }
-
-
 textarea.form-control {
-  resize: vertical;  
+  resize :vertical;  
 }
 .custom-toast {
   backdrop-filter: blur(8px);
@@ -199,8 +225,9 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+
   .alert {
-    left: 50%;
+    left: 10%;
     right: auto;
     top: 12px;
 
@@ -210,5 +237,204 @@ textarea.form-control {
     transform: translateX(-50%);
     font-size: 14px;
     border-radius: 12px;
+  }
+}
+/* =========================
+   MOBILE RESPONSIVENESS
+   ========================= */
+@media (min-width:991) {
+  .main-app-dark,
+  .main-app-light,
+  .main-app-smile,
+  .main-app-heart,
+  .main-app-fire {
+    margin-top: 70px;
+  }
+}
+/* Tablets & below */
+@media (max-width: 992px) {
+  .components {
+    
+    width: 85%;
+    max-width: 85%;
+  }
+    .main-app-dark,
+  .main-app-light,
+  .main-app-smile,
+  .main-app-heart,
+  .main-app-fire {
+    padding-top: 180px; /* adjust if navbar smaller on mobile */
+  }
+
+  .btn-container,
+  .summary-container {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .stats,
+  .reader {
+    gap: 1rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+
+  .main-app-dark,
+  .main-app-light,
+  .main-app-smile,
+  .main-app-heart,
+  .main-app-fire {
+    padding-top: 180px; /* adjust if navbar smaller on mobile */
+  }
+  .components {
+    width: 95%;
+    max-width: 95%;
+    margin-top: 70px;
+    min-height: auto;
+  }
+
+  .textAreaHeading {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  textarea.form-control {
+    font-size: 0.95rem;
+    min-height: 160px;
+  }
+
+  .btn-container,
+  .summary-container {
+    padding: 0.75rem;
+    border-radius: 16px;
+  }
+
+  .stats,
+  .reader {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat {
+    width: 100%;
+  }
+
+  .custom-theme-btns {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .toggle-container {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .components {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+    body, #root {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin-top: 70px;
+    }
+  .navbar {
+    padding: 0.75rem;
+  }
+
+  .textAreaHeading {
+    font-size: 1rem;
+  }
+
+  textarea.form-control {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .btn-container button,
+  .theme-btn {
+    transform: scale(0.92);
+  }
+}
+
+@media (max-width: 414px) {
+  .components {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+    body, #root {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin-top: 70px;
+  }
+  .textAreaHeading {
+    font-size: 1rem;
+  }
+
+  textarea.form-control {
+    font-size: 0.9rem;
+    min-height: 140px;
+  }
+
+  .btn-container button,
+  .theme-btn {
+    flex: 1 1 45%; /* buttons wrap nicely */
+    margin-bottom: 0.5rem;
+  }
+}
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-app-dark,
+.main-app-light,
+.main-app-smile,
+.main-app-heart,
+.main-app-fire {
+  width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Components & Textarea */
+.components {
+  width: 95%;
+  max-width: 95%;
+  margin: 0 auto;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Buttons container */
+.btn-container,
+.summary-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Textarea mobile adjustment */
+@media (max-width: 480px) {
+  textarea.form-control {
+    width: 100%;
+    min-height: 140px;
+  }
+  .btn-container button,
+  .theme-btn {
+    flex: 1 1 45%;
+    margin-bottom: 0.5rem;
   }
 }

@@ -1,6 +1,6 @@
 export default function Navbar(props) {
 
-
+  
   return (
     <>
         <nav className={ props.theme === 'custom1' ? 'navbar navbar-expand-lg bg-primary fixed-top' :
