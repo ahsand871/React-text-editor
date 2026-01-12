@@ -27,7 +27,7 @@ A modern **React-based Text Editor** with live text analysis, summary features, 
 
 ## Demo
 
-Include a screenshot or GIF of your app here:
+A screenshot of the app here:
 
 ![App Screenshot](./screenshot.png)
 
